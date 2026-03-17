@@ -1,3 +1,220 @@
 # Add patterns of files dvc should ignore, which could improve
 # the performance. Learn more at
 # https://dvc.org/doc/user-guide/dvcignore
+# .dvcignore - DVC ignore file
+# This file tells DVC which files/directories to ignore when tracking data
+
+# Compiled files
+*.pyc
+__pycache__/
+*.class
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Virtual environment
+venv/
+env/
+.env/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+myenv/
+virtualenv/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.vs/
+*.sublime-*
+.ipynb_checkpoints/
+
+# Model artifacts and checkpoints (if not tracked by DVC)
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.hdf5
+*.pb
+*.onnx
+*.pkl
+*.joblib
+*.keras
+*.h5py
+*.weights.h5
+
+# Large generated data files (if not tracked by DVC)
+*.npy
+*.npz
+*.csv
+*.parquet
+*.feather
+*.arrow
+*.h5
+*.hdf5
+*.tfrecords
+
+# Experiment tracking directories
+mlruns/          # MLflow
+wandb/           # Weights & Biases
+lightning_logs/  # PyTorch Lightning
+dvc_plots/       # DVC plots
+dvclive/         # DVCLive
+neptune/         # Neptune.ai
+cometruns/       # Comet.ml
+
+# Test directories and files
+tests/__pycache__/
+tests/*.pyc
+*.egg-info/
+dist/
+build/
+
+# Log files and temp files
+*.log
+*.tmp
+*.temp
+*.cache
+*.pid
+*.seed
+*.pid.lock
+temp/
+tmp/
+
+# Data directories (if you want to ignore certain data subdirectories)
+data/raw/.gitkeep
+data/external/.gitkeep
+data/interim/.gitkeep
+data/processed/.gitkeep
+data/raw/**/.gitkeep
+
+# Large file patterns to potentially ignore
+*.zip
+*.tar
+*.gz
+*.tgz
+*.bz2
+*.xz
+*.7z
+*.rar
+
+# Docker files (typically not tracked by DVC)
+.dockerignore
+Dockerfile
+docker-compose*.yml
+.docker/
+
+# CI/CD files
+.github/
+.gitlab/
+.jenkins/
+.circleci/
+.azuredevops/
+.gitlab-ci.yml
+.github/workflows/
+
+# Configuration files (optional to ignore)
+*.config
+*.cfg
+*.ini
+*.toml
+*.yaml
+*.yml
+# Note: Usually you might want to track config files, but can ignore if needed
+
+# Specific data file patterns by project structure
+# Uncomment and modify as needed for your project
+
+# Ignore all .gitkeep files (usually empty placeholders)
+.gitkeep
+
+# Ignore specific large data directories if not tracked
+data/01_raw/**/*
+!data/01_raw/.gitkeep
+
+data/02_intermediate/**/*
+!data/02_intermediate/.gitkeep
+
+data/03_processed/**/*
+!data/03_processed/.gitkeep
+
+data/04_features/**/*
+!data/04_features/.gitkeep
+
+data/05_model_input/**/*
+!data/05_model_input/.gitkeep
+
+data/06_models/**/*
+!data/06_models/.gitkeep
+
+data/07_model_output/**/*
+!data/07_model_output/.gitkeep
+
+data/08_reporting/**/*
+!data/08_reporting/.gitkeep
+
+# Ignore secrets and sensitive data
+*.pem
+*.key
+*.crt
+*.env
+*.secret
+*.secrets
+secrets/
+credentials/
+.aws/
+.gcp/
+.ssh/
+*.p12
+*.pfx
+
+# Ignore DVC internal files (they're already tracked separately)
+.dvc/tmp/
+.dvc/cache/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Ignore specific files in the root
+README.md
+LICENSE
+CONTRIBUTING.md
+CHANGELOG.md
+CODE_OF_CONDUCT.md
+
+# Ignore data versioning metadata (if any)
+.meta/
+.metadata/
+.version/
+
+# Ignore backup files
+*.bak
+*.backup
+*.old
+*.orig
+
+# Ignore OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Ignore conda environment files
+environment.yml
+environment.yaml
+requirements*.txt
+!requirements.txt  # Usually you want to track requirements.txt
+!environment.yml   # Usually you want to track conda env files
+
+# Ignore pipeline-specific artifacts (if not tracked)
+pipelines/**/outputs/
+pipelines/**/logs/
+pipelines/**/plots/

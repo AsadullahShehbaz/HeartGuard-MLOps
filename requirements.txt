@@ -8,6 +8,5 @@ tqdm
 ensure
 joblib
 types-PyYAML
-Flask
-Flask-Cors
+streamlit
 -e .
